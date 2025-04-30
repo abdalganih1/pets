@@ -1,0 +1,150 @@
+/* style.css */
+body {
+    background-color: #f8f9fa; /* خلفية رمادية فاتحة */
+  }
+  
+  .navbar-brand img {
+    max-height: 40px; /* تحديد ارتفاع الشعار */
+    margin-right: 10px;
+  }
+  
+  .dashboard-card {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pet-card img {
+    height: 200px;
+    object-fit: cover; /* لضمان تناسق حجم الصور */
+  }
+  
+  .pet-profile-img {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px; /* حد أقصى لارتفاع صورة البروفايل */
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+  }
+  
+  .profile-details dt {
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .profile-details dd {
+    margin-bottom: 0.8rem;
+    color: #333;
+  }
+  
+  .task-item {
+      border-left: 4px solid #0d6efd; /* خط أزرق لتمييز المهمة */
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background-color: #fff;
+      border-radius: 0.25rem;
+  }
+  
+  .task-item.completed {
+      border-left-color: #198754; /* أخضر للمهام المكتملة */
+      text-decoration: line-through;
+      opacity: 0.7;
+  }
+  
+  /* ألوان خاصة بـ Dr.Em (يمكن تغييرها) */
+  .navbar-dark.bg-primary {
+      background-color: #2c3e50 !important; /* كحلي غامق */
+  }
+  
+  .btn-primary {
+      background-color: #1abc9c; /* تركواز */
+      border-color: #1abc9c;
+  }
+  .btn-primary:hover {
+      background-color: #16a085;
+      border-color: #16a085;
+  }
+  
+  .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+      background-color: #1abc9c; /* تركواز للتابات النشطة */
+  }
+  
+  .nav-link {
+      color: #2c3e50; /* كحلي للنصوص */
+  }
+  
+  .nav-link:hover {
+      color: #1abc9c;
+  }
+
+  /* style.css (إضافة الأكواد التالية) */
+
+/* ... (الأكواد السابقة) ... */
+
+/* تصميم ملف القطة */
+.cat-profile-img {
+    max-width: 200px; /* حجم أصغر للصورة الدائرية */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%; /* جعل الصورة دائرية */
+    border: 5px solid #e9ecef; /* إطار خفيف للصورة */
+    margin: 0 auto; /* توسيط الصورة */
+    display: block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .bg-cat-header {
+    background: linear-gradient(135deg, #c3cfe2 0%, #f5f7fa 100%); /* تدرج رمادي فاتح */
+  }
+  
+  .cat-profile .nav-pills .nav-link.active,
+  .cat-profile .nav-pills .show > .nav-link {
+    background-color: #9b59b6; /* بنفسجي للتاب النشط */
+    color: white;
+  }
+  
+  .cat-profile .nav-link {
+    color: #9b59b6; /* بنفسجي لروابط التاب */
+  }
+  .cat-profile .nav-link:hover {
+    color: #8e44ad;
+  }
+  
+  /* تصميم ملف الطائر */
+  .bird-profile-header {
+    background-color: #f0fdf4; /* أخضر فاتح جداً للخلفية */
+    border-bottom: 3px solid #2ecc71; /* خط سفلي أخضر */
+    padding: 1.5rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+  
+  .bird-profile-img {
+    max-width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 0.375rem; /* زوايا دائرية */
+    border: 3px solid #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .bird-profile .accordion-button {
+      font-weight: 600;
+      color: #1a5d3b; /* أخضر غامق لعنوان الأكورديون */
+  }
+  .bird-profile .accordion-button:not(.collapsed) {
+    background-color: #d1fae5; /* أخضر فاتح عند الفتح */
+    color: #064e3b;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.125);
+  }
+  .bird-profile .accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(46, 204, 113, 0.25); /* ظل أخضر عند التركيز */
+  }
+  
+  .bird-profile .accordion-icon {
+      color: #2ecc71; /* لون أخضر للأيقونة */
+      margin-right: 0.5rem;
+  }

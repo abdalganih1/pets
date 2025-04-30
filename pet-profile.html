@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ملف بادي - Dr.Em</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar (نفس النافبار السابق) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+         <div class="container-fluid">
+             <a class="navbar-brand fw-bold" href="dashboard.html">
+                 <i class="fas fa-paw me-2"></i>Dr.Em
+             </a>
+             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span>
+             </button>
+             <div class="collapse navbar-collapse" id="navbarNav">
+                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                     <li class="nav-item">
+                         <a class="nav-link" href="dashboard.html"><i class="fas fa-tachometer-alt me-1"></i>لوحة التحكم</a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link" href="pets.html"><i class="fas fa-dog me-1"></i>حيواناتي</a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link" href="tasks.html"><i class="fas fa-tasks me-1"></i>المهام اليومية</a>
+                     </li>
+                      <li class="nav-item">
+                         <a class="nav-link" href="#"><i class="fas fa-book-open me-1"></i>المحتوى التعليمي</a>
+                     </li>
+                      <li class="nav-item">
+                         <a class="nav-link" href="#"><i class="fas fa-shopping-cart me-1"></i>المتجر</a>
+                     </li>
+                 </ul>
+                 <ul class="navbar-nav ms-auto">
+                      <li class="nav-item dropdown">
+                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-circle me-1"></i>مرحباً، [اسم المستخدم]
+                         </a>
+                         <ul class="dropdown-menu dropdown-menu-end">
+                             <li><a class="dropdown-item" href="#"><i class="fas fa-user-edit me-2"></i>تعديل الملف الشخصي</a></li>
+                             <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>الإعدادات</a></li>
+                             <li><hr class="dropdown-divider"></li>
+                             <li><a class="dropdown-item text-danger" href="login.html"><i class="fas fa-sign-out-alt me-2"></i>تسجيل الخروج</a></li>
+                         </ul>
+                     </li>
+                 </ul>
+             </div>
+         </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <!-- تنبيه افتراضي عند الوصول عبر QR -->
+        <!-- <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <i class="fas fa-qrcode me-2"></i>تم الوصول إلى هذا الملف عبر مسح الباركود. بعض المعلومات قد تكون محدودة للعرض العام.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div> -->
+
+        <div class="row g-4">
+            <!-- العمود الأيمن: الصورة والمعلومات الأساسية -->
+            <div class="col-lg-4">
+                <div class="card shadow-sm mb-4 sticky-lg-top">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0 text-center">بادي (Buddy)</h4>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" class="pet-profile-img p-3" alt="صورة الكلب بادي">
+                    <div class="card-body profile-details">
+                        <dl class="row mb-0">
+                            <dt class="col-sm-5"><i class="fas fa-paw me-2 text-primary"></i>النوع:</dt>
+                            <dd class="col-sm-7">كلب</dd>
+
+                            <dt class="col-sm-5"><i class="fas fa-tag me-2 text-primary"></i>السلالة:</dt>
+                            <dd class="col-sm-7">جولدن ريتريفر</dd>
+
+                            <dt class="col-sm-5"><i class="fas fa-venus-mars me-2 text-primary"></i>الجنس:</dt>
+                            <dd class="col-sm-7">ذكر</dd>
+
+                             <dt class="col-sm-5"><i class="fas fa-palette me-2 text-primary"></i>اللون:</dt>
+                            <dd class="col-sm-7">ذهبي</dd>
+
+                            <dt class="col-sm-5"><i class="fas fa-birthday-cake me-2 text-primary"></i>تاريخ الميلاد:</dt>
+                            <dd class="col-sm-7">01/01/2022</dd>
+
+                            <dt class="col-sm-5"><i class="fas fa-barcode me-2 text-primary"></i>الرقم التسلسلي:</dt>
+                            <dd class="col-sm-7"><code>DREMEM7K9A15</code></dd>
+
+                             <dt class="col-sm-5"><i class="fas fa-microchip me-2 text-primary"></i>المايكروشيب:</dt>
+                            <dd class="col-sm-7">981020037845123 (إن وجد)</dd>
+
+                            <dt class="col-sm-5"><i class="fas fa-user me-2 text-primary"></i>المالك الحالي:</dt>
+                            <dd class="col-sm-7">[اسم المستخدم]</dd>
+
+                            <!-- معلومات الأباء (اختياري) -->
+                            <!-- <dt class="col-sm-5"><i class="fas fa-dna me-2 text-primary"></i>الأب:</dt>
+                            <dd class="col-sm-7"><a href="#">DREMEM0FATHER1</a></dd>
+                            <dt class="col-sm-5"><i class="fas fa-dna me-2 text-primary"></i>الأم:</dt>
+                            <dd class="col-sm-7"><a href="#">DREMEM0MOTHER2</a></dd> -->
+                        </dl>
+                    </div>
+                     <div class="card-footer text-center">
+                         <button class="btn btn-secondary btn-sm"><i class="fas fa-edit me-1"></i> تعديل البيانات</button>
+                         <button class="btn btn-info btn-sm text-white"><i class="fas fa-qrcode me-1"></i> عرض الباركود</button>
+                         <button class="btn btn-warning btn-sm"><i class="fas fa-exchange-alt me-1"></i> نقل الملكية</button>
+                     </div>
+                </div>
+            </div>
+
+            <!-- العمود الأيسر: التابات (الصحي، الغذائي، إلخ) -->
+            <div class="col-lg-8">
+                 <div class="card shadow-sm">
+                     <div class="card-header">
+                         <ul class="nav nav-pills card-header-pills" id="petTab" role="tablist">
+                             <li class="nav-item" role="presentation">
+                                 <button class="nav-link active" id="medical-tab" data-bs-toggle="tab" data-bs-target="#medical" type="button" role="tab" aria-controls="medical" aria-selected="true"><i class="fas fa-notes-medical me-1"></i>الملف الصحي</button>
+                             </li>
+                             <li class="nav-item" role="presentation">
+                                 <button class="nav-link" id="feeding-tab" data-bs-toggle="tab" data-bs-target="#feeding" type="button" role="tab" aria-controls="feeding" aria-selected="false"><i class="fas fa-utensils me-1"></i>الملف الغذائي</button>
+                             </li>
+                             <li class="nav-item" role="presentation">
+                                 <button class="nav-link" id="media-tab" data-bs-toggle="tab" data-bs-target="#media" type="button" role="tab" aria-controls="media" aria-selected="false"><i class="fas fa-photo-video me-1"></i>الوسائط</button>
+                             </li>
+                             <li class="nav-item" role="presentation">
+                                 <button class="nav-link" id="breeding-tab" data-bs-toggle="tab" data-bs-target="#breeding" type="button" role="tab" aria-controls="breeding" aria-selected="false"><i class="fas fa-baby-carriage me-1"></i>الإنتاج والتكاثر</button>
+                             </li>
+                         </ul>
+                     </div>
+                     <div class="card-body">
+                         <div class="tab-content" id="petTabContent">
+                             <!-- محتوى الملف الصحي -->
+                             <div class="tab-pane fade show active" id="medical" role="tabpanel" aria-labelledby="medical-tab">
+                                 <h5 class="mb-3">السجل الطبي لـ "بادي"</h5>
+                                 <button class="btn btn-success btn-sm mb-3"><i class="fas fa-plus me-1"></i> إضافة سجل طبي جديد</button>
+                                 <h6><i class="fas fa-syringe me-2 text-info"></i>اللقاحات</h6>
+                                 <table class="table table-striped table-hover table-sm">
+                                     <thead>
+                                         <tr>
+                                             <th>التاريخ</th>
+                                             <th>نوع اللقاح</th>
+                                             <th>المستند</th>
+                                             <th>إجراء</th>
+                                         </tr>
+                                     </thead>
+                                     <tbody>
+                                         <tr>
+                                             <td>15/10/2023</td>
+                                             <td>لقاح السعار (Rabies) - جرعة سنوية</td>
+                                             <td><a href="#" target="_blank"><i class="fas fa-file-pdf text-danger"></i> شهادة.pdf</a></td>
+                                             <td><button class="btn btn-outline-danger btn-sm py-0 px-1"><i class="fas fa-trash-alt"></i></button></td>
+                                         </tr>
+                                         <tr>
+                                             <td>01/03/2023</td>
+                                             <td>اللقاح الخماسي (DHPPiL)</td>
+                                             <td><a href="#" target="_blank"><i class="fas fa-file-image text-primary"></i> صورة.jpg</a></td>
+                                             <td><button class="btn btn-outline-danger btn-sm py-0 px-1"><i class="fas fa-trash-alt"></i></button></td>
+                                         </tr>
+                                         <!-- أضف المزيد من اللقاحات -->
+                                     </tbody>
+                                 </table>
+                                 <hr>
+                                 <h6><i class="fas fa-allergies me-2 text-warning"></i>الحساسية</h6>
+                                 <p><strong>غذائية:</strong> لا يوجد.</p>
+                                 <p><strong>دوائية:</strong> لا يوجد.</p>
+                                 <hr>
+                                  <h6><i class="fas fa-notes-medical me-2 text-danger"></i>الأمراض المزمنة</h6>
+                                 <p>لا يوجد.</p>
+                                  <hr>
+                                 <h6><i class="fas fa-tint me-2" style="color: red;"></i>زمرة الدم</h6>
+                                 <p>DEA 1.1 Positive (مثال)</p>
+                             </div>
+
+                             <!-- محتوى الملف الغذائي -->
+                             <div class="tab-pane fade" id="feeding" role="tabpanel" aria-labelledby="feeding-tab">
+                                 <h5 class="mb-3">النظام الغذائي لـ "بادي"</h5>
+                                  <button class="btn btn-secondary btn-sm mb-3"><i class="fas fa-edit me-1"></i> تعديل النظام الغذائي</button>
+                                 <dl class="row">
+                                     <dt class="col-sm-4">الغذاء الرئيسي:</dt>
+                                     <dd class="col-sm-8">طعام جاف مخصص للكلاب الكبيرة (ماركة Royal Canin Maxi Adult)</dd>
+
+                                     <dt class="col-sm-4">عدد الوجبات:</dt>
+                                     <dd class="col-sm-8">2 (صباحاً ومساءً)</dd>
+
+                                     <dt class="col-sm-4">كمية الوجبة الواحدة:</dt>
+                                     <dd class="col-sm-8">2 كوب قياسي (تقريباً 350 جرام/يوم)</dd>
+
+                                     <dt class="col-sm-4">الإضافات الغذائية:</dt>
+                                     <dd class="col-sm-8">أحيانًا قطعة جزر أو تفاح كمكافأة.</dd>
+
+                                     <dt class="col-sm-4">المتممات الغذائية:</dt>
+                                     <dd class="col-sm-8">زيت سمك أوميغا 3 (كبسولة يومياً)</dd>
+
+                                     <dt class="col-sm-4">الغذاء المفضل:</dt>
+                                     <dd class="col-sm-8">صدور دجاج مسلوقة (كمكافأة خاصة)</dd>
+
+                                      <dt class="col-sm-4">الحساسية الغذائية:</dt>
+                                     <dd class="col-sm-8">لا يوجد</dd>
+                                 </dl>
+                             </div>
+
+                             <!-- محتوى الوسائط -->
+                              <div class="tab-pane fade" id="media" role="tabpanel" aria-labelledby="media-tab">
+                                  <h5 class="mb-3">صور وفيديوهات "بادي"</h5>
+                                  <button class="btn btn-success btn-sm mb-3"><i class="fas fa-upload me-1"></i> رفع صورة/فيديو</button>
+                                  <div class="row g-2">
+                                      <!-- مثال لصورة -->
+                                      <div class="col-6 col-md-4 col-lg-3">
+                                         <img src="https://images.unsplash.com/photo-1583511655826-05700d52f4d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" class="img-thumbnail" alt="بادي يلعب">
+                                          <p class="small text-muted text-center mt-1">بادي يلعب بالكرة</p>
+                                      </div>
+                                      <div class="col-6 col-md-4 col-lg-3">
+                                          <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" class="img-thumbnail" alt="بادي يستريح">
+                                           <p class="small text-muted text-center mt-1">وقت الراحة</p>
+                                      </div>
+                                       <!-- مثال لفيديو (Placeholder) -->
+                                      <div class="col-6 col-md-4 col-lg-3">
+                                          <div class="img-thumbnail d-flex justify-content-center align-items-center bg-secondary text-white" style="height: 150px;">
+                                              <i class="fas fa-play-circle fa-3x"></i>
+                                          </div>
+                                          <p class="small text-muted text-center mt-1">فيديو تدريب</p>
+                                      </div>
+                                      <!-- Add more media items -->
+                                  </div>
+                              </div>
+
+                             <!-- محتوى الإنتاج -->
+                             <div class="tab-pane fade" id="breeding" role="tabpanel" aria-labelledby="breeding-tab">
+                                 <h5 class="mb-3">سجل الإنتاج والتكاثر</h5>
+                                  <button class="btn btn-info btn-sm mb-3 text-white"><i class="fas fa-plus me-1"></i> إضافة سجل تزاوج/ولادة</button>
+                                 <p class="text-muted">لا توجد سجلات إنتاج حالياً لهذا الحيوان.</p>
+                                 <!-- مثال لجدول إنتاج (لو كان موجوداً) -->
+                                 <!-- <table class="table table-sm table-bordered">
+                                     <thead>
+                                         <tr>
+                                             <th>الأم</th>
+                                             <th>الأب</th>
+                                             <th>تاريخ الحمل</th>
+                                             <th>تاريخ الولادة</th>
+                                             <th>عدد المواليد</th>
+                                             <th>تاريخ الفطام</th>
+                                         </tr>
+                                     </thead>
+                                     <tbody>
+                                         <tr>
+                                             <td><a href="#">DREMEM0MOTHER2</a></td>
+                                             <td><a href="#">DREMEM0FATHER1</a></td>
+                                             <td>15/05/2023</td>
+                                             <td>15/07/2023</td>
+                                             <td>6</td>
+                                             <td>15/09/2023</td>
+                                         </tr>
+                                     </tbody>
+                                 </table> -->
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (نفس Footer السابق) -->
+     <footer class="bg-light text-center text-lg-start mt-5">
+       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+         © 2024 Dr.Em - جميع الحقوق محفوظة
+       </div>
+     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

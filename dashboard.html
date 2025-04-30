@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - Dr.Em</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="dashboard.html">
+                <i class="fas fa-paw me-2"></i>Dr.Em
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="dashboard.html"><i class="fas fa-tachometer-alt me-1"></i>لوحة التحكم</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pets.html"><i class="fas fa-dog me-1"></i>حيواناتي</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tasks.html"><i class="fas fa-tasks me-1"></i>المهام اليومية</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-book-open me-1"></i>المحتوى التعليمي</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-shopping-cart me-1"></i>المتجر</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                           <i class="fas fa-user-circle me-1"></i>مرحباً، [اسم المستخدم]
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user-edit me-2"></i>تعديل الملف الشخصي</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>الإعدادات</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="login.html"><i class="fas fa-sign-out-alt me-2"></i>تسجيل الخروج</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h1 class="display-6 fw-light">نظرة عامة</h1>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Card: عدد الحيوانات -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card text-center dashboard-card shadow-sm h-100">
+                    <div class="card-body">
+                        <i class="fas fa-paw fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">إجمالي الحيوانات</h5>
+                        <p class="display-4 fw-bold">3</p>
+                        <a href="pets.html" class="btn btn-sm btn-outline-primary">إدارة الحيوانات</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card: المهام القادمة -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card text-center dashboard-card shadow-sm h-100">
+                    <div class="card-body">
+                        <i class="fas fa-calendar-check fa-3x text-success mb-3"></i>
+                        <h5 class="card-title">المهام القادمة (اليوم)</h5>
+                        <p class="display-4 fw-bold">2</p>
+                        <a href="tasks.html" class="btn btn-sm btn-outline-success">عرض المهام</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card: تنبيهات صحية -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card text-center dashboard-card shadow-sm h-100">
+                    <div class="card-body">
+                        <i class="fas fa-heartbeat fa-3x text-danger mb-3"></i>
+                        <h5 class="card-title">تنبيهات صحية</h5>
+                        <p class="display-4 fw-bold">1</p> <!-- يمكن تحديث هذا الرقم ديناميكياً -->
+                        <small class="text-muted d-block mb-2">(تطعيمات ومواعيد قادمة)</small>
+                        <!-- ***** تعديل الرابط هنا ***** -->
+                        <a href="health-alerts.html" class="btn btn-sm btn-outline-danger">
+                            <i class="fas fa-bell me-1"></i>عرض التنبيهات
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card: إضافة حيوان جديد -->
+            <div class="col-md-6 col-lg-3">
+                 <div class="card text-center dashboard-card shadow-sm h-100 bg-light">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <i class="fas fa-plus-circle fa-3x text-secondary mb-3"></i>
+                        <h5 class="card-title">حيوان جديد</h5>
+                        <p class="text-muted">إضافة حيوان أليف أو طائر إلى ملفك</p>
+                        <a href="pets.html" class="btn btn-secondary mt-auto">
+                           <i class="fas fa-plus me-1"></i> إضافة الآن
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <!-- قسم إضافي: آخر النشاطات أو المقالات المميزة -->
+         <div class="row mt-5">
+            <div class="col-12">
+                <h2 class="fw-light">آخر التحديثات</h2>
+                 <hr>
+            </div>
+             <div class="col-md-6">
+                 <h5><i class="fas fa-newspaper me-2 text-primary"></i>مقالات مميزة</h5>
+                 <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a href="#" class="text-decoration-none">أهمية التطعيمات للقطط والكلاب</a></li>
+                    <li class="list-group-item"><a href="#" class="text-decoration-none">كيف تختار الغذاء المناسب لطائرك؟</a></li>
+                    <li class="list-group-item"><a href="#" class="text-decoration-none">علامات تدل على سعادة حيوانك الأليف</a></li>
+                 </ul>
+             </div>
+             <div class="col-md-6">
+                 <h5><i class="fas fa-history me-2 text-primary"></i>آخر الإضافات</h5>
+                 <ul class="list-group list-group-flush">
+                    <li class="list-group-item">تم إضافة سجل تطعيم لـ "بادي".</li>
+                    <li class="list-group-item">تم تحديث المهام اليومية لـ "مشمش".</li>
+                    <li class="list-group-item">تم إضافة "لوسي" (قطة) إلى قائمة حيواناتك.</li>
+                </ul>
+             </div>
+         </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5">
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2024 Dr.Em - جميع الحقوق محفوظة
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
