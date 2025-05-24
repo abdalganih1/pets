@@ -21,6 +21,11 @@
             background-color: #f4f7f6; /* خلفية رمادية فاتحة جداً */
         }
 
+        /* إخفاء النصوص الإنجليزية افتراضياً في الوضع العربي */
+        html[lang="ar"] .lang-en { display: none; }
+        html[lang="en"] .lang-ar { display: none; }
+
+
         .navbar-custom {
             background-color: var(--brand-teal);
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -28,6 +33,11 @@
 
         .navbar-custom .navbar-brand img {
             max-height: 50px;
+        }
+
+        .lang-switcher .btn {
+            font-size: 0.9rem;
+            padding: 0.25rem 0.5rem;
         }
 
         .hero-section {
@@ -39,8 +49,20 @@
 
         .hero-section .logo-main {
             max-width: 150px; /* حجم أكبر للشعار في الهيرو */
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
+
+        .slogan-ar, .slogan-en {
+            font-size: 1.1rem;
+            color: var(--brand-text);
+            font-weight: 500;
+            margin-top: -10px;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+         .slogan-en {
+             font-family: 'Poppins', sans-serif; /* خط إنجليزي مناسب */
+         }
 
         .vision-statement {
             font-size: 1.4rem;
@@ -54,11 +76,11 @@
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             margin-top: 30px;
-            overflow: hidden; /* لإخفاء أي تجاوزات للصورة */
+            overflow: hidden;
         }
 
         .info-card .dog-image-container {
-            background-color: var(--brand-light-blue); /* خلفية لصورة الكلب */
+            background-color: var(--brand-light-blue);
             padding: 20px;
             display: flex;
             align-items: center;
@@ -69,7 +91,7 @@
             max-width: 100%;
             max-height: 300px;
             border-radius: 8px;
-            object-fit: cover; /* يضمن أن الصورة تغطي المساحة دون تشويه */
+            object-fit: cover;
         }
 
         .info-card .card-header-custom {
@@ -88,9 +110,14 @@
             color: var(--brand-text);
         }
         .info-list dd i {
-            margin-left: 8px; /* مسافة للأيقونة */
+            margin-left: 8px; /* مسافة للأيقونة في RTL */
             color: var(--brand-gold);
         }
+        html[lang="en"] .info-list dd i {
+            margin-left: 0;
+            margin-right: 8px; /* مسافة للأيقونة في LTR */
+        }
+
 
         .qr-code-section img {
             max-width: 180px;
@@ -109,7 +136,7 @@
             transition: background-color 0.3s ease;
         }
         .btn-main-site:hover {
-            background-color: #bf8a54; /* درجة أغمق من الذهبي */
+            background-color: #bf8a54;
             border-color: #bf8a54;
             color: white;
         }
@@ -120,7 +147,7 @@
             padding: 20px 0;
             margin-top: 50px;
         }
-        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap');
     </style>
 </head>
 <body>
@@ -129,19 +156,28 @@
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <!-- يجب استبدال src بالمسار الصحيح لصورة الشعار -->
-                <img src="img.jpg" alt="شعار UltraVet">
+                <img src="img.jpg" alt="شعار UltraVet"> <!-- استبدل باسم الشعار الصحيح -->
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link text-white active" aria-current="page" href="#">معلومات الكلاب الشاردة</a>
+                        <a class="nav-link text-white active" aria-current="page" href="#">
+                            <span class="lang-ar">معلومات الكلاب الشاردة</span>
+                            <span class="lang-en">Stray Dog Information</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#main-site-link">موقعنا الرئيسي (قريباً)</a>
+                        <a class="nav-link text-white" href="#main-site-link">
+                            <span class="lang-ar">موقعنا الرئيسي (قريباً)</span>
+                            <span class="lang-en">Our Main Site (Soon)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item lang-switcher ms-lg-3 mt-2 mt-lg-0">
+                        <button class="btn btn-outline-light btn-sm" onclick="setLanguage('ar')">العربية</button>
+                        <button class="btn btn-outline-light btn-sm" onclick="setLanguage('en')">English</button>
                     </li>
                 </ul>
             </div>
@@ -150,57 +186,86 @@
 
     <!-- Hero Section - القسم الرئيسي -->
     <div class="hero-section">
-        <img src="img.jpg" alt="UltraVet Logo" class="logo-main">
-        <h1 class="display-5" style="color: var(--brand-teal);">مبادرة رعاية الكلاب الشاردة</h1>
-        <p class="vision-statement">"معًا، نمنح كل روح فرصة جديدة للحياة والأمل بمستقبل أفضل."</p>
+        <img src="img.jpg" alt="UltraVet Logo" class="logo-main"> <!-- استبدل باسم الشعار الصحيح -->
+        <p class="slogan-ar">نضيف الأمل إلى الحياة</p>
+        <p class="slogan-en">ADD HOPE TO LIFE</p>
+
+        <h1 class="display-5" style="color: var(--brand-teal);">
+            <span class="lang-ar">مبادرة رعاية الكلاب الشاردة</span>
+            <span class="lang-en">Stray Dog Care Initiative</span>
+        </h1>
+        <p class="vision-statement">
+            <span class="lang-ar">"معًا، نمنح كل روح فرصة جديدة للحياة والأمل بمستقبل أفضل."</span>
+            <span class="lang-en">"Together, we give every soul a new chance at life and hope for a better future."</span>
+        </p>
     </div>
 
     <!-- Main Content - المحتوى الرئيسي -->
     <div class="container">
         <div class="info-card">
             <div class="card-header-custom text-center">
-                معلومات الكلب: <span class="fw-bold">سباركي (مثال)</span>
+                <span class="lang-ar">معلومات الكلب: <span class="fw-bold">سباركي (مثال)</span></span>
+                <span class="lang-en">Dog Information: <span class="fw-bold">Sparky (Example)</span></span>
             </div>
             <div class="row g-0">
                 <!-- عمود الصورة -->
                 <div class="col-md-5 dog-image-container">
-                    <!-- استبدل src بصورة كلب حقيقية أو مناسبة -->
-                    <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3RyYXklMjBkb2d8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="صورة كلب شارد" class="dog-image">
+                    <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3RyYXklMjBkb2d8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="Stray Dog" class="dog-image">
                 </div>
 
                 <!-- عمود المعلومات -->
                 <div class="col-md-7">
                     <div class="card-body p-4">
                         <dl class="row info-list">
-                            <dt class="col-sm-4"><i class="fas fa-venus-mars"></i>الجنس:</dt>
-                            <dd class="col-sm-8">ذكر</dd>
+                            <dt class="col-sm-4"><i class="fas fa-venus-mars"></i><span class="lang-ar">الجنس:</span><span class="lang-en">Gender:</span></dt>
+                            <dd class="col-sm-8"><span class="lang-ar">ذكر</span><span class="lang-en">Male</span></dd>
 
-                            <dt class="col-sm-4"><i class="fas fa-calendar-alt"></i>العمر التقديري:</dt>
-                            <dd class="col-sm-8">سنتان ونصف</dd>
+                            <dt class="col-sm-4"><i class="fas fa-calendar-alt"></i><span class="lang-ar">العمر التقديري:</span><span class="lang-en">Estimated Age:</span></dt>
+                            <dd class="col-sm-8"><span class="lang-ar">سنتان ونصف</span><span class="lang-en">2.5 Years</span></dd>
 
-                            <dt class="col-sm-4"><i class="fas fa-syringe"></i>اللقاحات:</dt>
-                            <dd class="col-sm-8">تم تطعيمه ضد السعار واللقاح السباعي (بتاريخ: ١٥/١٠/٢٠٢٣)</dd>
+                            <dt class="col-sm-4"><i class="fas fa-syringe"></i><span class="lang-ar">اللقاحات:</span><span class="lang-en">Vaccinations:</span></dt>
+                            <dd class="col-sm-8">
+                                <span class="lang-ar">تم تطعيمه ضد السعار واللقاح السباعي (بتاريخ: ١٥/١٠/٢٠٢٣)</span>
+                                <span class="lang-en">Vaccinated against Rabies and DHPPi (Date: 15/10/2023)</span>
+                            </dd>
 
-                            <dt class="col-sm-4"><i class="fas fa-heartbeat"></i>الحالة الصحية:</dt>
-                            <dd class="col-sm-8">جيدة بشكل عام، يعاني من جرب بسيط تم علاجه. تم تعقيمه.</dd>
+                            <dt class="col-sm-4"><i class="fas fa-heartbeat"></i><span class="lang-ar">الحالة الصحية:</span><span class="lang-en">Health Status:</span></dt>
+                            <dd class="col-sm-8">
+                                <span class="lang-ar">جيدة بشكل عام، يعاني من جرب بسيط تم علاجه. تم تعقيمه.</span>
+                                <span class="lang-en">Generally good, treated for minor mange. Neutered.</span>
+                            </dd>
 
-                            <dt class="col-sm-4"><i class="fas fa-notes-medical"></i>معلومات إضافية:</dt>
-                            <dd class="col-sm-8">ودود جداً مع الناس والحيوانات الأخرى، يحب اللعب. تم العثور عليه في منطقة [اسم المنطقة].</dd>
+                            <dt class="col-sm-4"><i class="fas fa-notes-medical"></i><span class="lang-ar">معلومات إضافية:</span><span class="lang-en">Additional Info:</span></dt>
+                            <dd class="col-sm-8">
+                                <span class="lang-ar">ودود جداً مع الناس والحيوانات الأخرى، يحب اللعب. تم العثور عليه في منطقة [اسم المنطقة].</span>
+                                <span class="lang-en">Very friendly with people and other animals, loves to play. Found in [Area Name].</span>
+                            </dd>
 
-                            <dt class="col-sm-4"><i class="fas fa-hands-helping"></i>جهة الحملة / المنقذ:</dt>
-                            <dd class="col-sm-8">فريق UltraVet لإنقاذ الحيوانات بالتعاون مع [اسم جمعية محلية]</dd>
+                            <dt class="col-sm-4"><i class="fas fa-hands-helping"></i><span class="lang-ar">جهة الحملة / المنقذ:</span><span class="lang-en">Campaign / Rescuer:</span></dt>
+                            <dd class="col-sm-8">
+                                <span class="lang-ar">فريق UltraVet لإنقاذ الحيوانات بالتعاون مع [اسم جمعية محلية]</span>
+                                <span class="lang-en">UltraVet Animal Rescue Team in collaboration with [Local Association Name]</span>
+                            </dd>
 
-                            <dt class="col-sm-4"><i class="fas fa-map-marker-alt"></i>مكان التواجد الحالي:</dt>
-                            <dd class="col-sm-8">ملجأ [اسم الملجأ] - جاهز للتبني</dd>
+                            <dt class="col-sm-4"><i class="fas fa-map-marker-alt"></i><span class="lang-ar">مكان التواجد الحالي:</span><span class="lang-en">Current Location:</span></dt>
+                            <dd class="col-sm-8">
+                                <span class="lang-ar">ملجأ [اسم الملجأ] - جاهز للتبني</span>
+                                <span class="lang-en">[Shelter Name] Shelter - Ready for adoption</span>
+                            </dd>
                         </dl>
 
                         <hr style="border-color: var(--brand-light-blue);">
 
                         <div class="text-center qr-code-section mt-3">
-                            <h5 style="color: var(--brand-teal);">للمزيد من المعلومات أو للتبني:</h5>
-                            <!-- استبدل src برمز QR حقيقي إذا توفر -->
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://example.com/adopt-sparky" alt="QR Code وهمي">
-                            <p class="mt-2 small text-muted">امسح الرمز أو تواصل معنا</p>
+                            <h5 style="color: var(--brand-teal);">
+                                <span class="lang-ar">للمزيد من المعلومات أو للتبني:</span>
+                                <span class="lang-en">For more information or adoption:</span>
+                            </h5>
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://example.com/adopt-sparky" alt="QR Code">
+                            <p class="mt-2 small text-muted">
+                                <span class="lang-ar">امسح الرمز أو تواصل معنا</span>
+                                <span class="lang-en">Scan the code or contact us</span>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -210,23 +275,53 @@
         <!-- زر الموقع الرئيسي -->
         <div class="text-center my-5" id="main-site-link">
             <a href="#" class="btn btn-main-site disabled" aria-disabled="true">
-                <i class="fas fa-globe me-2"></i> موقعنا الرئيسي - قريباً جداً!
+                <i class="fas fa-globe me-2"></i>
+                <span class="lang-ar">موقعنا الرئيسي - قريباً جداً!</span>
+                <span class="lang-en">Our Main Site - Coming Soon!</span>
             </a>
-            <p class="mt-2 text-muted">نعمل بجد لإطلاق منصتنا المتكاملة لخدمتكم وخدمة أليفكم.</p>
+            <p class="mt-2 text-muted">
+                <span class="lang-ar">نعمل بجد لإطلاق منصتنا المتكاملة لخدمتكم وخدمة أليفكم.</span>
+                <span class="lang-en">We are working hard to launch our integrated platform to serve you and your pets.</span>
+            </p>
         </div>
     </div>
 
     <!-- Footer - التذييل -->
     <footer class="footer-custom text-center">
         <div class="container">
-            <p class="mb-0">© <span id="currentYear"></span> UltraVet - جميع الحقوق محفوظة. مبادرة لإضافة الأمل لحياة الحيوانات.</p>
+            <p class="mb-0">
+                <span class="lang-ar">© <span id="currentYearAr"></span> UltraVet - جميع الحقوق محفوظة. مبادرة لإضافة الأمل لحياة الحيوانات.</span>
+                <span class="lang-en">© <span id="currentYearEn"></span> UltraVet - All rights reserved. An initiative to add hope to animals' lives.</span>
+            </p>
         </div>
     </footer>
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script>
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            // يمكنك حفظ اللغة المختارة في localStorage إذا أردت تذكرها عبر الجلسات
+            // localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // // لتحميل اللغة المفضلة عند فتح الصفحة (إذا تم حفظها)
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     const preferredLanguage = localStorage.getItem('preferredLanguage');
+        //     if (preferredLanguage) {
+        //         setLanguage(preferredLanguage);
+        //     } else {
+        //         setLanguage('ar'); // اللغة الافتراضية
+        //     }
+        // });
+        
+        // افتراضياً، ابدأ باللغة العربية
+        setLanguage('ar');
+
+
+        document.getElementById('currentYearAr').textContent = new Date().getFullYear();
+        document.getElementById('currentYearEn').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
